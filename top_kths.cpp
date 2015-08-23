@@ -24,13 +24,11 @@ void BuildHeap(int heap[], int len)
 //调整大根堆
 void MaxHeap(int heap[], int i, int len)
 {
-  int largeIndex = -1;
+  int largeIndex = i;
   int left = i * 2;
   int right = i * 2 + 1;
   if (left < len && heap[left] > heap[i])
     largeIndex = left;
-  else
-    largeIndex = i;
   if (right < len && heap[right] > heap[largeIndex])
     largeIndex = right;
   if (largeIndex != i)
@@ -51,7 +49,7 @@ int main(int argc, char** argv)
     heap[index] = array[index];
   }
   BuildHeap(heap, k);
-  for (int index = 0; index != sizeof(array)/sizeof(int); index++)
+  for (int index = k; index != sizeof(array)/sizeof(int); index++)
   {
     if (array[index] < heap[0]);
     {
