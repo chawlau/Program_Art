@@ -61,27 +61,17 @@ void MaxHeap_(int array[], int i, int length)
 
 int main(int argc, char** argv)
 {
-  int k;
-  std::cin >> k;
-  int * heap = new int[k];
   int array[8] = {6 , 7 , 5, 15 , 1 , 12, 9, 3};
   int len = sizeof(array)/sizeof(int);
-  for (int index = 0; index != k; index++)
+  BuildHeap(array, len);
+  for (int index = len - 1; index >= 0; index--)
   {
-    heap[index] = array[index];
+    swap(array[0],array[index]);
+    MaxHeap_(array, 0, index);
   }
-  BuildHeap(heap, k);
-  for (int index = k; index != sizeof(array)/sizeof(int); index++)
+  for (int index = 0; index != len; index++)
   {
-    if (array[index] < heap[0]);
-    {
-      heap[0] = array[index];
-      MaxHeap(heap, 0, k);
-    }
+    std::cout << array[index] << std::endl;
   }
-
-  for (int index = 0; index != k; index++)
-    std::cout << heap[index] << " ";
-  std::cout << std::endl;
 }
 

@@ -26,6 +26,24 @@ void HeapAdjust(int array[], int i, int length)
   }
 }
 
+void MinHeap(int heap[], int i, int len)
+{
+
+  int minIndex = i;
+  int left = i * 2;
+  int right = i * 2 + 1;
+  if (left < len && heap[left] < heap[i])
+    minIndex = left;
+  if (right < len && heap[right] < heap[minIndex])
+    minIndex = right;
+  if (minIndex != i)
+  {
+    swap(heap[i], heap[minIndex]);
+    MinHeap(heap, minIndex, len);
+  }
+
+}
+
 int GetMin(int array[], int length, int k)
 {
   int min = array[0];
