@@ -15,7 +15,7 @@ void BuildHeap(int heap[], int len)
   {
     return;
   }
-  int index = len/2;
+  int index = len/2 - 1;
   for (int i = index; i >= 0; i--)
   {
     //MaxHeap(heap, i, len);
@@ -27,8 +27,8 @@ void BuildHeap(int heap[], int len)
 void MaxHeap(int heap[], int i, int len)
 {
   int largeIndex = i;
-  int left = i * 2;
-  int right = i * 2 + 1;
+  int left = i * 2 + 1;
+  int right = i * 2 + 2;
   if (left < len && heap[left] > heap[i])
     largeIndex = left;
   if (right < len && heap[right] > heap[largeIndex])
@@ -61,13 +61,13 @@ void MaxHeap_(int array[], int i, int length)
 
 int main(int argc, char** argv)
 {
-  int array[8] = {6 , 7 , 5, 15 , 1 , 12, 9, 3};
+  int array[11] = {6 , 7 , 5, 15 , 1 , 12, 9, 3, 4, 2, 17};
   int len = sizeof(array)/sizeof(int);
   BuildHeap(array, len);
   for (int index = len - 1; index >= 0; index--)
   {
     swap(array[0],array[index]);
-    MaxHeap_(array, 0, index);
+    MaxHeap(array, 0, index);
   }
   for (int index = 0; index != len; index++)
   {

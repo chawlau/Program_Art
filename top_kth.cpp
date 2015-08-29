@@ -24,7 +24,7 @@ int my_rand(int low, int high)
 }
 
 //以第一个元素对数组进行一次划分
-int partion(int* array, int left, int right)
+int partion_front(int* array, int left, int right)
 {
   int pos = left;
   for(int index = left + 1; index != right + 1; index++)
@@ -59,7 +59,7 @@ int random_partion(int array[], int left, int right)
   int index = my_rand(left, right);
   swap(array[right], array[index]);
   //return partion_rear(array, left, right);
-  return partion(array, left, right);
+  return partion_front(array, left, right);
 }
 //求出第k小的数
 int random_select(int array[], int left, int right, int k)
